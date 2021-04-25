@@ -30,8 +30,8 @@ module.exports = {
     // specifying a different adapter
     // adapter: node(),
     // adapter: node({ out: 'build' }),
-    // adapter: netlify(),
-    adapter: netlify({ out: 'build' }),
+    adapter: netlify(),
+    // adapter: netlify({ out: 'build' }),
 
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#workspacex',
@@ -40,7 +40,7 @@ module.exports = {
     },
     vite: {
       ssr: {
-        external: Object.keys(pkg.dependencies || {})
+        noExternal: Object.keys(pkg.dependencies || {})
       }
     }
   }
