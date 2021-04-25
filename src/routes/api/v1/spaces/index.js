@@ -1,5 +1,6 @@
 import { connectToDatabase } from '$lib/db'
-import { ObjectId } from 'mongodb'
+import pkg from 'mongodb'
+const { ObjectId } = pkg
 
 export async function get (request) {
   try {
