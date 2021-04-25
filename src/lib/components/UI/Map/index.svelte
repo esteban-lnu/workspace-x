@@ -17,7 +17,7 @@
 
 <script>
   import { onMount, onDestroy } from 'svelte'
-  import mapboxgl from 'mapbox-gl/dist/mapbox-gl'
+  import mapboxgl from 'mapbox-gl/dist/mapbox-gl.js'
   import { activeListItem, activeMapItem } from '/src/store/mapgl-store'
   import { accessToken, listItems } from '/src/helpers/consts'
 
