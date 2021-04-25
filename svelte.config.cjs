@@ -9,8 +9,13 @@ module.exports = {
   preprocess: [
     sveltePreprocess({
       replace: [
-        ['process.env.MONGODB_DB', process.env.MONGODB_DB],
+        [
+          'process.env.MONGODB_DB', process.env.MONGODB_DB
+        ],
       ],
+      define: {
+        'process.env.MONGODB_DB': JSON.stringify(process.env.MONGODB_DB)
+      },
       defaults: {
         style: 'postcss',
       },
