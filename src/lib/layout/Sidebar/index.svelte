@@ -11,9 +11,9 @@
 
 {#if open === true }
   <Modal on:cancel="{onClose}" on:close="{onClose}">
-    <h1 slot="header" class="bg-teal-600">
-      Header
-    </h1>
+    <div slot="header">
+      <img class="mx-auto h-12 w-auto" src="/workspacex-logo.svg" alt="Workflow">
+    </div>
     <nav class="text-xl">
       <a class="block" on:click="{onClose}" href="/auth/login">Login</a>
       <a class="block" on:click="{onClose}" href="/register">Register</a>
