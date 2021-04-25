@@ -6,32 +6,35 @@ const pkg = require('./package.json');
 
 /** @type {import('@sveltejs/kit').Config} */
 module.exports = {
-	preprocess: [
-		sveltePreprocess({
-			defaults: {
-				style: 'postcss',
-			},
-			postcss: true
-		}),
-	],
-	kit: {
-		// By default, `npm run build` will create a standard Node app.
-		// You can create optimized builds for different platforms by
-		// specifying a different adapter
-		// adapter: node(),
-		// adapter: node({ out: 'build' }),
-		// adapter: netlify(),
-		adapter: netlify({ out: 'build' }),
+  preprocess: [
+    sveltePreprocess({
+      defaults: {
+        style: 'postcss',
+      },
+      postcss: true,
+      define: {
+        'process.env.MONGODB_DB': JSON.stringify(process.env.MONGODB_DB)
+      }
+    })
+  ],
+  kit: {
+    // By default, `npm run build` will create a standard Node app.
+    // You can create optimized builds for different platforms by
+    // specifying a different adapter
+    // adapter: node(),
+    // adapter: node({ out: 'build' }),
+    // adapter: netlify(),
+    adapter: netlify({ out: 'build' }),
 
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#workspacex',
-		files: {
-			assets: 'static',
-		},
-		vite: {
-			ssr: {
-				external: Object.keys(pkg.dependencies || {})
-			}
-		}
-	}
+    // hydrate the <div id="svelte"> element in src/app.html
+    target: '#workspacex',
+    files: {
+      assets: 'static',
+    },
+    vite: {
+      ssr: {
+        external: Object.keys(pkg.dependencies || {})
+      }
+    }
+  }
 };
