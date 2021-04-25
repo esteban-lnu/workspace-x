@@ -1,6 +1,6 @@
 <script context="module">
-	import { enhance } from '$lib/form';
-	
+	import { enhance } from '$lib/form'
+
 	// see https://kit.svelte.dev/docs#loading
 	export const load = async ({ fetch }) => {
 		const res = await fetch('/todos.json');
